@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Any, Dict, Optional
 from django.views.generic import (
     CreateView,
     DetailView,
@@ -11,13 +11,13 @@ from django.contrib.auth.mixins import (
     LoginRequiredMixin,
     UserPassesTestMixin
 )
-from .models import Post
+from .models import Post,  Status
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     template_name = "posts/new.html"
     model = Post
-    fields = ["title", "subtitle", "body"]
+    fields = ["title", "subtitle", "body", "status"]
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -30,7 +30,7 @@ class PostDetailView(DetailView):
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = "posts/edit.html"
     model = Post
-    fields = ["title", "subtitle", "body"]
+    fields = ["title", "subtitle", "body", "status"]
 
     def test_func(self):
         post = self.get_object()
@@ -48,3 +48,25 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class PostListView(ListView):
     template_name = "posts/list.html"
     model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        published_status = Status.objects.get(name="published")
+        context["post_list"] = Post.objects.filter(
+            status=published_status
+            ).order_by("created_on").reverse()
+        return context
+
+class DraftPostListView(LoginRequiredMixin, ListView):
+    template_name = "posts/list.html"
+    model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        draft_status = Status.objects.get(name="draft")
+        context["post_list"] = Post.objects.filter(
+            author=self.request.user
+            ).filter(
+            status=draft_status
+            ).order_by("created_on").reverse()
+        return context
