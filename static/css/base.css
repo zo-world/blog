@@ -1,23 +1,174 @@
 form>p>label {
-  color: red;
+color: red;
   padding: 10px;
   margin: 10px;
 }
 
 form>p>input[type="text"] {
-  padding: 10px;
+padding: 10px;
   margin: 10px;
   width: 100%;
   border-radius: 8px;
 }
 
 form>p>textarea {
-  padding: 10px;
+padding: 10px;
   margin: 10px;
   width: 100%;
   border-radius: 8px;
 }
 
 #id_title {
-  font-size: 24;
+font-size: 26;
+}
+
+/* New Post */
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #ffddc1;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.nav-link {
+  color: #555;
+  font-size: 1rem;
+  margin-right: 10px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ff9f7f;
+}
+
+/* Content Styles */
+.container-fluid {
+  padding: 20px;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #666;
+}
+
+.card-text {
+  color: #555;
+}
+
+.btn-outline-info {
+  color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.btn-outline-info:hover {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.btn-outline-warning {
+  color: #ffaa00;
+  border-color: #ffaa00;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffaa00;
+  color: #fff;
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Footer Style */
+footer {
+  background-color: #ffddc1;
+  padding: 20px;
+  text-align: center;
+  color: #555;
+}
+
+/* List code */
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #888;
+}
+
+.card-text {
+  color: #444;
+}
+
+.btn-outline-info {
+  color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.btn-outline-info:hover {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.btn-outline-warning {
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
 }

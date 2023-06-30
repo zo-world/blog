@@ -3,16 +3,36 @@
 
 {% block title %}New Post{% endblock title %}
 
-
 {% block content %}
-<div class="offset-md-1">
-  <h1>New Post</h1>
-</div>
 <div class="container">
-  <form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" class="btn btn-success" value="Create">
-  </form>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title text-center">New Post</h1>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              {{ form.title|as_crispy_field }}
+            </div>
+            <div class="mb-3">
+              {{ form.subtitle|as_crispy_field }}
+            </div>
+            <div class="mb-3">
+              {{ form.body|as_crispy_field }}
+            </div>
+            <div class="mb-3">
+              {{ form.status|as_crispy_field }}
+            </div>
+            <div class="d-grid">
+              <input type="submit" class="btn btn-primary" value="Create">
+            </div>
+            </form>
+        </div>
+        </div>
+        </div>
+        </div>
 </div>
 {% endblock content %}

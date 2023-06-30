@@ -3,16 +3,36 @@
 
 {% block title %}Edit Post{% endblock title %}
 
-
 {% block content %}
-<div class="offset-md-1">
-  <h1>Edit Post</h1>
-</div>
 <div class="container">
-  <form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" class="btn btn-warning" value="Edit">
-  </form>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title text-center">Edit Post</h1>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              {{ form.title|as_crispy_field }}
+            </div>
+            <div class="mb-3">
+              {{ form.subtitle|as_crispy_field }}
+            </div>
+            <div class="mb-3">
+              {{ form.body|as_crispy_field }}
+            </div>
+            <div class="mb-3">
+              {{ form.status|as_crispy_field }}
+            </div>
+            <div class="d-grid">
+              <input type="submit" class="btn btn-warning" value="Edit">
+            </div>
+          </form>
+        </div>
+        </div>
+        </div>
+        </div>
 </div>
 {% endblock content %}

@@ -3,27 +3,30 @@
 
 {% block title %}Log In{% endblock title %}
 
-
 {% block content %}
 <div class="container">
-  <div class="offset-md-1 row">
-    <h1>Log In</h1>
-  </div>
-  <div class="row">
-    <div class="offset-md-2 col-md-6" id="login">
-      <form method="POST">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input type="submit" class="btn btn-success" value="Log In">
-        </form>
-    </div>
-    </div>
-    <div class="row">
-      <div class="offset-md-2">
-        <small>
-          Forgot your password? <a href="{% url 'password_reset' %}">Click here</a> to reset it.
-        </small>
-      </div>
-    </div>
-    </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title text-center">Log In</h1>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+<div class="text-center">
+  <button type="submit" class="btn btn-primary">Log In</button>
+</div>
+</form>
+</div>
+        <div class="card-footer">
+          <p class="text-center">
+            Forgot your password? <a href="{% url 'password_reset' %}">Click here</a> to reset it.
+          </p>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
 {% endblock content %}
